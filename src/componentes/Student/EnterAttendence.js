@@ -30,18 +30,18 @@ const EnterAttendence=()=>{
        socket.emit("initailStudentData",{mail:studentLoginData?.userData?.mail,section:studentLoginData?.userData?.section,name:studentLoginData?.userData?.name})
        socket.on("initailStudentResponse",(data)=>{
          if(data.period1===true){
-            setStudentAttendence(true);
+            setStudentAttendence(false);
          }
        })
        socket.on("verifyOTPResult",(data)=>{
          if(data.success===true){
-            setStudentAttendence(true);
+            setStudentAttendence(false);
          }
        })
-  },[studentAttendence])
+  },[studentAttendence,mapActiveState])
 
-   if(studentAttendence) return <p>attendance done</p>
-   if(mapActiveState) return <p>pls wait for enable the attendance </p>
+   if(studentAttendence===false) return <p>attendance done</p>
+   if(mapActiveState===true) return <p>pls wait for enable the attendance </p>
     return <>
     <div className="">
     <MapVerification />
