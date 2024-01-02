@@ -10,10 +10,10 @@ const EnterAttendence=()=>{
    const [mapActiveState,addsetMapActiveState]=useState(true);
    const [studentAttendence,setStudentAttendence]=useState();
   const dispatch=useDispatch()
-
+  var socket=io("https://sure-wildcat-pasha.koyeb.app/");
 
   useEffect(()=>{
-     const socket=io("https://sure-wildcat-pasha.koyeb.app/");
+    console.log("useefefct");
        socket.on("statusOfmapActivated",(data)=>{
 
           addTeacherLoaction([data.attendance[0].lat,data.attendance[0].lng])
@@ -29,6 +29,7 @@ const EnterAttendence=()=>{
        })
        socket.emit("initailStudentData",{mail:studentLoginData?.userData?.mail,section:studentLoginData?.userData?.section,name:studentLoginData?.userData?.name})
        socket.on("initailStudentResponse",(data)=>{
+        console.log("ini",data);
          if(data.period1===true){
             setStudentAttendence(false);
          }

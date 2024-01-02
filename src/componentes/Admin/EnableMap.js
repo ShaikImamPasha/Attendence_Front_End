@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { io } from "socket.io-client";
 const EnableMap=()=>{
+    var socket=io("https://sure-wildcat-pasha.koyeb.app/");
     const [EnableMap,setEnableMap]=useState(false);
     const [latlng,setLatLng]=useState(null);
       useEffect(()=>{
@@ -16,8 +17,6 @@ const EnableMap=()=>{
 
    const enableMapFun=()=>{
         setEnableMap(!EnableMap);
- 
-   const socket=io("https://sure-wildcat-pasha.koyeb.app/");
    socket.emit("activateMap",{lat:latlng.lat,lng:latlng.lng,section:"d",Enable:!EnableMap})
    socket.on("statusOfmapActivated",(data)=>{
      
