@@ -11,7 +11,7 @@ import { EnterAttendence, StudentPosrtel,StudentProfile } from "./componentes/St
 const App=()=>{
     return <>
       <Provider store={appStore}>
-          <Outlet />
+            <LoginPage />
       </Provider>
     </>
 }
@@ -19,14 +19,10 @@ const AppLayOut=createBrowserRouter([
     {
         path:"/",
         element:<App />,
-        children:[
-            {
-                 path:"/Login",
-                 element:<LoginPage />
-            },
-            {
+    },
+        {
                 path: "/AdminPage",
-                element:<Adminpage />,
+                element: <Provider store={appStore}><Adminpage /></Provider> ,
                 children:[
                 {
                     path:"/AdminPage/createAccount",
@@ -40,7 +36,7 @@ const AppLayOut=createBrowserRouter([
             },
             {
                 path:"/StudentPosrtel",
-                element:<StudentPosrtel />,
+                element:<Provider store={appStore}><StudentPosrtel /></Provider>,
                 children:[
                     {
                         path:"/StudentPosrtel/EnterAttendence",
@@ -51,8 +47,6 @@ const AppLayOut=createBrowserRouter([
                     }
                 ]
             }
-           ]
-    }
     
 ])
 var id=document.getElementById("root");
