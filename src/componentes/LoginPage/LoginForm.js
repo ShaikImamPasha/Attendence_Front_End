@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import { useState,useEffect } from "react";
 import {addStudentData} from "../../utilles/ReaduxToolkit/StudentSlice" 
+const socket = io('https://sure-wildcat-pasha.koyeb.app/');
 
 const LoginForm = ({ userType,isStudentMode }) => {
     const [userMail,setUserMail]=useState("")
     var dispatch=useDispatch()
     const [userPasword,setUserPasword]=useState("");
-    const socket = io('https://sure-wildcat-pasha.koyeb.app/');
     const navgator=useNavigate();
     
   useEffect(()=>{

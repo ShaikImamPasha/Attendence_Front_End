@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { io } from "socket.io-client";
+var socket=io("https://sure-wildcat-pasha.koyeb.app/");
 const EnableMap=()=>{
-    var socket=io("https://sure-wildcat-pasha.koyeb.app/");
     const [EnableMap,setEnableMap]=useState(false);
     const [latlng,setLatLng]=useState(null);
       useEffect(()=>{

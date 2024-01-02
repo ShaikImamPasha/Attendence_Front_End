@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
-
+var socket=io("https://sure-wildcat-pasha.koyeb.app/")
 const Otp=()=>{
-  var socket=io("https://sure-wildcat-pasha.koyeb.app/")
     const [loading,setLoading]=useState(true);
     const [Otp,setOtp]=useState()
     const studentData=useSelector((state)=>state.student.StudentData)

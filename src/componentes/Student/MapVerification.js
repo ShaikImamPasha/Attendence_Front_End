@@ -5,7 +5,7 @@ import { io } from 'socket.io-client';
 import { Otp } from './Otp';
 // Import Leaflet CSS at the top of your file
 import 'leaflet/dist/leaflet.css';
-
+const socket = io("https://sure-wildcat-pasha.koyeb.app/");
 
 const TeacherMarker = ({ position }) => (
   <Marker position={position}>
@@ -14,7 +14,6 @@ const TeacherMarker = ({ position }) => (
 );
 
 const MapVerification = () => {
-  const socket = io("https://sure-wildcat-pasha.koyeb.app/");
   const [userLocation, setUserLocation] = useState([]);
   const [verificationResult, setVerificationResult] = useState(false);
   const [matcheMapState, setMatcheMapState] = useState(false);
