@@ -17,7 +17,7 @@ const EnableMap=()=>{
    const enableMapFun=()=>{
         setEnableMap(!EnableMap);
  
-   const socket=io("http://localhost:3000");
+   const socket=io("https://sure-wildcat-pasha.koyeb.app/");
    socket.emit("activateMap",{lat:latlng.lat,lng:latlng.lng,section:"d",Enable:!EnableMap})
    socket.on("statusOfmapActivated",(data)=>{
      

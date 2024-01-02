@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 const CreateAccount = () => {
-  const socket = io('http://localhost:3000');
+  const socket = io('https://sure-wildcat-pasha.koyeb.app/');
   const [createData, setCreateData] = useState({ name: "", mail: "", section: "", password: "" });
   const [statusMessage, setStatusMessage] = useState("");
 
