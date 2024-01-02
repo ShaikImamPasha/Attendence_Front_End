@@ -11,6 +11,7 @@ import { EnterAttendence, StudentPosrtel,StudentProfile } from "./componentes/St
 const App=()=>{
     return <>
       <Provider store={appStore}>
+        <LoginPage />
           <Outlet />
       </Provider>
     </>
@@ -20,10 +21,6 @@ const AppLayOut=createBrowserRouter([
         path:"/",
         element:<App />,
         children:[
-            {
-                path:"/LoginPage",
-                element: <LoginPage />
-            },
             {
                 path: "/AdminPage",
                 element:<Adminpage />,
