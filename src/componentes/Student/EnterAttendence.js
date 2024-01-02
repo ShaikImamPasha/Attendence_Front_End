@@ -3,7 +3,7 @@ import { MapVerification } from "./index"
 import { io } from "socket.io-client"
 import { useDispatch, useSelector } from "react-redux";
 import { addsetMapActiveState,addTeacherLoaction } from "../../utilles/ReaduxToolkit/StudentSlice";
-
+import { addTeacherLoaction } from "../../utilles/ReaduxToolkit/StudentSlice";
 
 const EnterAttendence=()=>{
    const studentLoginData=useSelector((state)=>state.student.StudentData);
@@ -15,8 +15,8 @@ const EnterAttendence=()=>{
   useEffect(()=>{
      const socket=io("https://sure-wildcat-pasha.koyeb.app/");
        socket.on("statusOfmapActivated",(data)=>{
-         console.log("ttttt",data);
-          
+
+          addTeacherLoaction([data.attendance[0].lat,data.attendance[0].lng])
            const filterData=data.attendance.filter((data)=>{
                 return data.mail===studentLoginData?.userData?.mail && data.mapActive===true
            })
