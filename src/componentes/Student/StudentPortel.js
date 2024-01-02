@@ -10,7 +10,7 @@ const StudentPosrtel=()=>{
   useEffect(()=>{
     if(studentData.userData===undefined){
       alert("pleasee Login Again"); 
-      navgator("/") 
+      navgator("/LoginPage") 
     }
   },[studentData])
     return <>

@@ -28,7 +28,6 @@ const EnterAttendence=()=>{
             addsetMapActiveState(false)
            }
        })
-       socket.emit("initailStudentData",{mail:studentLoginData?.userData?.mail,section:studentLoginData?.userData?.section,name:studentLoginData?.userData?.name})
        socket.on("initailStudentResponse",(data)=>{
         console.log("ini",data);
          if(data.period1===true){
@@ -41,14 +40,21 @@ const EnterAttendence=()=>{
 
        })
        socket.on("verifyOTPResult",(data)=>{
+         console.log("interveldata",data)
          if(data.success===true){
             setStudentAttendence(false);
          }
        })
-      
+      const intervel=setInterval(()=>{
+         console.log("intervel")
+         socket.emit("initailStudentData",{mail:studentLoginData?.userData?.mail,section:studentLoginData?.userData?.section,name:studentLoginData?.userData?.name})
+       },2000)
+      return()=>{
+          clearInterval(intervel)
+      }
   },[studentAttendence,mapActiveState])
 console.log("Adadaddad");
-   if(studentAttendence===false) return <p>attendance done</p>
+   if(studentAttendence===false) return <p>attendance already eneterd done</p>
    if(mapActiveState===true) return <p>pls wait for enable the attendance </p>
     return <>
     <div className="">
