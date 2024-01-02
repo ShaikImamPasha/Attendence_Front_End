@@ -12,9 +12,7 @@ const LoginForm = ({ userType,isStudentMode }) => {
     const navgator=useNavigate();
     
   useEffect(()=>{
-    socket.on('connect', () => {
-        console.log('Connected to the WebSocket server');
-      });
+
   },[])
   function adminLogin(){
     socket.emit("LoginAdmin",{enteredMail:userMail,enteredPassword:userPasword})

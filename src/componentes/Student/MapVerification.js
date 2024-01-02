@@ -15,11 +15,6 @@ const TeacherMarker = ({ position }) => (
 
 const MapVerification = () => {
   const socket = io("https://sure-wildcat-pasha.koyeb.app/");
-
-  socket.on("connect", () => {
-    console.log("Socket connected");
-  });
-
   const [userLocation, setUserLocation] = useState([]);
   const [verificationResult, setVerificationResult] = useState(false);
   const [matcheMapState, setMatcheMapState] = useState(false);

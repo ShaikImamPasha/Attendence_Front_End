@@ -39,7 +39,7 @@ const EnterAttendence=()=>{
          }
        })
   },[studentAttendence,mapActiveState])
-
+console.log("Adadaddad");
    if(studentAttendence===false) return <p>attendance done</p>
    if(mapActiveState===true) return <p>pls wait for enable the attendance </p>
     return <>
