@@ -33,7 +33,7 @@ const MapVerification = () => {
     );
      
     const defaultTeacherLocation = [teacherLocation.lat,teacherLocation.lng];
-    const rectangleSize = 0.000111; // approximately 10 meters in degrees
+    const rectangleSize = 0.000333; // approximately 10 meters in degrees
     const teacherRectangleBounds = [
       [defaultTeacherLocation[0] - rectangleSize / 2, defaultTeacherLocation[1] - rectangleSize / 2],
       [defaultTeacherLocation[0] + rectangleSize / 2, defaultTeacherLocation[1] + rectangleSize / 2],
