@@ -13,7 +13,7 @@ const TeacherMarker = ({ position }) => {
 };
 
 const MapVerification = () => {
-  var socket=io("http://localhost:3000");
+  var socket=io("https://sure-wildcat-pasha.koyeb.app/");
   
 socket.on("connect", () => {
   console.log("Socket connected");

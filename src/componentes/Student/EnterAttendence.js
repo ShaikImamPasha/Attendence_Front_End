@@ -13,7 +13,7 @@ const EnterAttendence=()=>{
 
 
   useEffect(()=>{
-     const socket=io("http://localhost:3000");
+     const socket=io("https://sure-wildcat-pasha.koyeb.app/");
        socket.on("statusOfmapActivated",(data)=>{
          console.log("ttttt",data);
           

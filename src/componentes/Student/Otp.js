@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
 
 const Otp=()=>{
-  var socket=io("http://localhost:3000")
+  var socket=io("https://sure-wildcat-pasha.koyeb.app/")
     const [loading,setLoading]=useState(true);
     const [Otp,setOtp]=useState()
     const studentData=useSelector((state)=>state.student.StudentData)
