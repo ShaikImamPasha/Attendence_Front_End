@@ -4,7 +4,7 @@ import { Adminpage,CreateAccount,EnableMap } from "../src/componentes/Admin/inde
 import { LoginPage } from "./componentes/LoginPage";
 import { RouterProvider,Outlet,createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import appStore from "./utilles/ReaduxToolkit/Appstore";
+import appStore from "./utilles/ReaduxToolkit/appstore";
 import { EnterAttendence, StudentPosrtel,StudentProfile } from "./componentes/Student/index";
 
 
