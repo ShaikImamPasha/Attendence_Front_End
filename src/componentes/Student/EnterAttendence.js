@@ -57,12 +57,14 @@ const EnterAttendence=()=>{
            body: JSON.stringify({ name, mail, section }),
          });
          response=await response.json();
+    
          if(response.foundStudent.period1===true){
                 setStudentAttendence(false)
          }
          if(response.foundStudent.mapActive===true){
             addsetMapActiveState(false)
-            dispatch(addTeacherLoaction({lat:data.lat,lng:data.lng}))
+            dispatch(addTeacherLoaction({lat:response.foundStudent.lat,lng:response.foundStudent.lng}))
+            console.log("Aaddddddddddddddddddd",response.foundStudent.lat);
          }
          // Handle response as needed
          console.log("interval response", response);
@@ -74,7 +76,6 @@ const EnterAttendence=()=>{
           clearInterval(intervel)
       }
   },[studentAttendence,mapActiveState])
-console.log("Adadaddad");
    if(studentAttendence===false) return <p>attendance already eneterd done</p>
    if(mapActiveState===true) return <p>pls wait for enable the attendance </p>
     return <>
