@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { io } from "socket.io-client";
+import { StudentPreasent } from "./StudentPreasent";
 var socket=io("https://sure-wildcat-pasha.koyeb.app/");
 const EnableMap=()=>{
 
@@ -30,6 +31,9 @@ const EnableMap=()=>{
 
        <button onClick={()=>enableMapFun()}>Enable</button>
        {EnableMap?<p>done</p>:<p>disable</p>}
+       <div>
+           <StudentPreasent />
+       </div>
     </>
 }
 export {EnableMap}

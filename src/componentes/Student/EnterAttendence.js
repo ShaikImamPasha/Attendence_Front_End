@@ -40,14 +40,35 @@ const EnterAttendence=()=>{
 
        })
        socket.on("verifyOTPResult",(data)=>{
-         console.log("interveldata",data)
          if(data.success===true){
             setStudentAttendence(false);
          }
        })
-      const intervel=setInterval(()=>{
-         console.log("intervel")
-         socket.emit("initailStudentData",{mail:studentLoginData?.userData?.mail,section:studentLoginData?.userData?.section,name:studentLoginData?.userData?.name})
+      const intervel=setInterval(async()=>{
+         var name=studentLoginData.userData.name;
+         var section=studentLoginData.userData.section;
+        var mail=studentLoginData.userData.mail;
+        try {
+         var response = await fetch('https://sure-wildcat-pasha.koyeb.app/initailStudentData', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+           },
+           body: JSON.stringify({ name, mail, section }),
+         });
+         response=await response.json();
+         if(response.foundStudent.period1===true){
+                setStudentAttendence(false)
+         }
+         if(response.foundStudent.mapActive===true){
+            addsetMapActiveState(false)
+            dispatch(addTeacherLoaction({lat:data.lat,lng:data.lng}))
+         }
+         // Handle response as needed
+         console.log("interval response", response);
+       } catch (error) {
+         console.error("Error fetching data:", error);
+       }
        },2000)
       return()=>{
           clearInterval(intervel)
